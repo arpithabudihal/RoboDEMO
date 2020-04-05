@@ -33,11 +33,11 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFiles: 'output.xml'
+    testResultsFiles: 'outputxunit.xml'
     searchFolder: 'D:\a\1\s\'
     testRunTitle: 'Publish Robot Test Results'
   condition: succeededOrFailed()
-  displayName: 'Publish Robot Test Results output.xml'
+  displayName: 'Publish Robot Test Results outputunit.xml'
     
 
 
