@@ -24,20 +24,31 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install robotframework robotframework-seleniumlibrary && npm install chromedriver
+    pip install robotframework robotframework-seleniumlibrary PyMySQL robotframework-databaselibrary  && npm install chromedriver
   displayName: 'Install dependencies'
 
 - powershell: robot --pythonpath . -x outputxunit.xml PyTest\Tests\Login.robot
-  displayName: 'Run Robot Scripts'
+  displayName: 'Run Robot GUI Scripts'
+- powershell: robot --pythonpath . -x outputxunit_db.xml PyTest\Tests\DBTesting.robot
+  displayName: 'Run Robot DB Scripts'
 
 
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: 'outputxunit.xml'
     searchFolder: 'D:\a\1\s\'
-    testRunTitle: 'Publish Robot Test Results'
+    testRunTitle: 'Publish GUI Test Results'
   condition: succeededOrFailed()
-  displayName: 'Publish Robot Test Results outputunit.xml'
+  displayName: 'Publish GUI Test Results outputunit.xml'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: 'outputxunit_db.xml'
+    searchFolder: 'D:\a\1\s\'
+    testRunTitle: 'Publish DB Test Results'
+  condition: succeededOrFailed()
+  displayName: 'Publish DB Test Results outputunit_db.xml'
+
     
 
 
