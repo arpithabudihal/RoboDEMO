@@ -27,10 +27,10 @@ steps:
     pip install robotframework robotframework-seleniumlibrary PyMySQL robotframework-databaselibrary  && npm install chromedriver
   displayName: 'Install dependencies'
 
-- powershell: robot --pythonpath . -x outputxunit.xml PyTest\Tests\Login.robot
-  displayName: 'Run Robot GUI Scripts'
-- powershell: robot --pythonpath . -x outputxunit_db.xml PyTest\Tests\DBTesting.robot
-  displayName: 'Run Robot DB Scripts'
+- powershell: robot --pythonpath . -x outputxunit.xml PyTest\Tests\Dynamics.robot
+  displayName: 'Running Dynamics 365 Sample Regression Testing'
+#- powershell: robot --pythonpath . -x outputxunit_db.xml PyTest\Tests\DBTesting.robot
+#  displayName: 'Run Robot DB Scripts'
 
 
 - task: PublishTestResults@2
@@ -41,13 +41,13 @@ steps:
   condition: succeededOrFailed()
   displayName: 'Publish GUI Test Results outputunit.xml'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFiles: 'outputxunit_db.xml'
-    searchFolder: 'D:\a\1\s\'
-    testRunTitle: 'Publish DB Test Results'
-  condition: succeededOrFailed()
-  displayName: 'Publish DB Test Results outputunit_db.xml'
+#- task: PublishTestResults@2
+#  inputs:
+#    testResultsFiles: 'outputxunit_db.xml'
+#    searchFolder: 'D:\a\1\s\'
+#    testRunTitle: 'Publish DB Test Results'
+#  condition: succeededOrFailed()
+#  displayName: 'Publish DB Test Results outputunit_db.xml'
 
     
 
