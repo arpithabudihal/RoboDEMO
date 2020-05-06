@@ -7,7 +7,7 @@ Library  SeleniumLibrary
 
 
 *** Test Cases ***
-Test Case for Dynamics 365 Login
+Dynamics 365 Login
     Open Browser    https://trial2904.crm8.dynamics.com/    chrome
     Set Selenium Speed  1
     Set Selenium Implicit Wait  60
@@ -20,6 +20,8 @@ Test Case for Dynamics 365 Login
     input password  name:passwd     Happy123
     Click Button   id:idSIButton9
     Click Button   id:idBtn_Back
+
+Add New Contact
     Select Frame    AppLandingPage
     Wait Until Page Contains    Published Apps
     log to console  apps found
@@ -37,7 +39,7 @@ Test Case for Dynamics 365 Login
     input text  xpath://input[contains(@placeholder,'Provide an email')]    arpitha.budihal@okq8.se
     input text  xpath://input[contains(@placeholder,'Provide a telephone number')]  9875387546
     click element   xpath://span[contains(text(),'Save & Close')]
-    # Close Browser
+    #Close Browser
 *** Keywords ***
-Add New Contact
+
 
