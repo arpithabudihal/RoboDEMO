@@ -39,7 +39,7 @@ steps:
     searchFolder: 'D:\a\1\s\'
     testRunTitle: 'Publish GUI Test Results'
   condition: succeededOrFailed()
-  displayName: 'Publish GUI Test Results outputunit.xml'
+  displayName: 'Publish Regression Test Results'
 
 #- task: PublishTestResults@2
 #  inputs:
