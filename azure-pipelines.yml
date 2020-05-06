@@ -37,7 +37,7 @@ steps:
   inputs:
     testResultsFiles: 'outputxunit.xml'
     searchFolder: 'D:\a\1\s\'
-    testRunTitle: 'Publish GUI Test Results'
+    testRunTitle: 'Publish Regression Test Results'
   condition: succeededOrFailed()
   displayName: 'Publish Regression Test Results'
 
